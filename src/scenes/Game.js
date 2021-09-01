@@ -6,7 +6,13 @@ export default class Game extends Phaser.Scene
     super('game'); // Every Scene has to define a unique key.
   }
 
-  preload() {} //called to allow us to specify images, audio, or other assets to load before starting the Scene.
+  //called to allow us to specify images, audio, or other assets to load before starting the Scene.
+  preload() {
+    this.load.image('background', 'assets/bg_layer1.png');
+  }
 
-  create() {} //called once all the assets for the Scene have been loaded.
+  //called once all the assets for the Scene have been loaded.
+  create() {
+    this.add.image(240, 320, 'background');
+  }
 }
