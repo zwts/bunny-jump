@@ -17,6 +17,8 @@ export default class Game extends Phaser.Scene
   //called once all the assets for the Scene have been loaded.
   create() {
     this.add.image(240, 320, 'background');
-    this.add.image(240, 320, 'platform').setScale(0.5);
+    // this.add.image(240, 320, 'platform').setScale(0.5);
+    // this.physics.add.image(240, 320, 'platform').setScale(0.5);
+    this.physics.add.staticImage(240, 320, 'platform').setScale(0.5);
   }
 }
