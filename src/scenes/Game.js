@@ -1,7 +1,8 @@
 import Phaser from '../lib/phaser.js';
 
-export default class Game extends Phaser.Scene
-{
+export default class Game extends Phaser.Scene {
+  player
+
   constructor() {
     super('game'); // Every Scene has to define a unique key.
   }
@@ -37,7 +38,18 @@ export default class Game extends Phaser.Scene
     }
 
     // create bunny
-    const player = this.physics.add.sprite(240, 320, 'bunny-stand').setScale(0.5);
-    this.physics.add.collider(platforms, player);
+    this.player = this.physics.add.sprite(240, 320, 'bunny-stand').setScale(0.5);
+    // add a collider between the platforms created earlier and the new player variable.
+    this.physics.add.collider(platforms, this.player);
+  }
+
+  update() {
+    // find out from Arcade Physics if the player's physics body
+    // is touching something below it
+    const touchingDown = this.player.body.touching.down;
+
+    if (touchingDown) {
+      this.player.setVelocityY(-300);
+    }
   }
 }
