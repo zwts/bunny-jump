@@ -41,6 +41,12 @@ export default class Game extends Phaser.Scene {
     this.player = this.physics.add.sprite(240, 320, 'bunny-stand').setScale(0.5);
     // add a collider between the platforms created earlier and the new player variable.
     this.physics.add.collider(platforms, this.player);
+    this.player.body.checkCollision.up = false;
+    this.player.body.checkCollision.left = false;
+    this.player.body.checkCollision.right = false;
+
+    // camera
+    this.cameras.main.startFollow(this.player);
   }
 
   update() {
