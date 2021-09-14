@@ -19,7 +19,7 @@ export default class Game extends Phaser.Scene {
   //called once all the assets for the Scene have been loaded.
   create() {
     // create background
-    this.add.image(240, 320, 'background');
+    this.add.image(240, 320, 'background').setScrollFactor(1, 0);
 
     // create platform
     // this.add.image(240, 320, 'platform').setScale(0.5);
